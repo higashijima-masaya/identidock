@@ -1,13 +1,18 @@
 identidock:
   build: .
   ports:
-#    - "5000:5000"
+    - "5000:5000"
 #    - "9090"
-    - "9090:9090"
+#    - "9090:9090"
 #    - "9191"
-    - "9191:9191"
+#    - "9191:9191"
   environment:
-#    ENV: DEV
-    ENV: EXEC
+    ENV: DEV
+#    ENV: EXEC
   volumes:
     - ./app:/app
+  links:
+    - dnmonster
+
+dnmonster:
+  image: amouat/dnmonster:1.0
